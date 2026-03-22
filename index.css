@@ -1,0 +1,62 @@
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 550px;
+}
+
+.nav {
+    display: flex;
+    position: relative;
+    height: 120px;
+    justify-content: space-between;
+    background-color: antiquewhite;
+    align-items: center;
+}
+
+.nav .nav-img,
+.nav img {
+    height: inherit;
+}
+
+.nav-link {
+    list-style-type: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-self: center;
+    font-size: 24px;
+    position: absolute;
+    right: 5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(255, 153, 0);
+}
+
+.show-classdemo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+iframe {
+    width: 100%;
+    height: 600px;
+    overflow: visible;
+    resize: none;
+}
+
+
+/*# sourceMappingURL=index.css.map */

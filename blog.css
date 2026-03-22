@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    /*設置外邊距為0*/
+    padding: 0;
+    /*設置內邊距為0*/
+    box-sizing: border-box;
+    /*設置邊框模型為border-box*/
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /*設置字體系列，優先使用系統字體*/
+    background: var(--grey-light);
+    /*設置背景顏色*/
+    color: var(--grey-dark);
+    /*設置字體顏色*/
+    font-size: 12px;
+    /*設置字體大小為12px*/
+}
+
+:root {
+    --article-width: 350px;
+    /*設置文章寬度為350px*/
+    --primary: #645cff;
+    /*設置主色調為#645cff*/
+    --primary-dark: #3c3799;
+    /*設置主色調深色為#3c3799*/
+    --grey-light: #f1f5f9;
+    /*設置淺灰色為#f1f5f9*/
+    --grey: #64748b;
+    /*設置灰色為#64748b*/
+    --grey-dark: #0f172a;
+    /*設置深灰色為#0f172a*/
+    --letter-spacing: 2px;
+    /*設置字母間距為2px*/
+    --fluid-width: 90vw;
+    /*設置流動寬度為90vw*/
+    --max-width: 1170px;
+    /*設置最大寬度為1170px*/
+    --border-radius: 0.15rem;
+    /*設置圓角為0.15rem*/
+}
+
+.blogs-center {
+    width: var(--fluid-width);
+    /*設置流動寬度*/
+    max-width: var(--max-width);
+    /*設置最大寬度*/
+    margin: 0 auto;
+    /*設置外邊距為自動，居中對齊*/
+    display: grid;
+    /*設置為網格布局*/
+    grid-template-columns: repeat(3, 30%);
+    /*設置網格列為3列，每列寬度為30%*/
+    gap: 2rem;
+    /*設置網格間距為2rem*/
+}
+
+@media screen and (max-width: 450px) {
+    .blogs-center {
+        display: flex;
+        /*設置為彈性盒子布局*/
+        flex-direction: column;
+        /*設置主軸方向為列*/
+    }
+}
+h1{
+    text-align: center;
+    /*設置文本對齊為居中*/
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-size: 50px;
+}
+img {
+    height: 12rem;
+    /*設置圖片高度為12rem*/
+    width: 100%;
+    /*設置圖片寬度為100%*/
+    display: block;
+    /*設置為塊級元素*/
+    object-fit: cover;
+    /*設置圖片填充方式為cover*/
+}
+
+.blog {
+    background-color: white;
+    /*設置背景顏色為白色*/
+    padding: 0.75rem;
+    /*設置內邊距為0.75rem*/
+    border-radius: var(--border-radius);
+    /*設置圓角為var(--border-radius)*/
+    margin-bottom: 2rem;
+    /*設置下外邊距為2rem*/
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /*設置陰影效果*/
+    transition: 0.5s ease-in-out all;
+    /*設置過渡效果*/
+}
+
+.blog-img {
+    border-radius: var(--border-radius);
+    /*設置圓角為var(--border-radius)*/
+    margin-bottom: 0.5rem;
+    /*設置下外邊距為0.5rem*/
+}
+
+.blog-content {
+    padding-bottom: 1rem;
+    /*設置下內邊距為1rem*/
+    text-align: center;
+}
+
+.blog-content h3 {
+    letter-spacing: var(--letter-spacing);
+    /*設置字母間距為var(--letter-spacing)*/
+    margin: 0.5rem 0;
+    /*設置上下外邊距為0.5rem*/
+    font-size: 17px;
+}
+
+.blog-content p {
+    color: var(--grey);
+    /*設置顏色為var(--grey)*/
+    margin-bottom: 0.5rem;
+    /*設置下外邊距為0.5rem*/
+    font-size: 15px;
+}
+
+.blog-content button {
+    background-color: var(--primary);
+    /*設置背景顏色為var(--primary)*/
+    color: white;
+    /*設置字體顏色為白色*/
+    border: none;
+    /*設置邊框為無*/
+    padding: 0.5rem 1rem;
+    /*設置內邊距為0.5rem 1rem*/
+    border-radius: var(--border-radius);
+    /*設置圓角為var(--border-radius)*/
+    cursor: pointer;
+    /*設置鼠標指針為手型*/
+    font-size: 13px;
+}
+
+.blog:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /*設置陰影效果*/
+}

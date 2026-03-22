@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="earthquake.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>my_resume</title>
+</head>
+<body>
+ <div class="sidebar">
+    <a href="#section1" class="nav-link">專案介紹</a>
+    <a href="#section2" class="nav-link">背景與動機</a>
+    <a href="#section3" class="nav-link">技術重點與貢獻</a>
+    <a href="#section4" class="nav-link">資料庫邏輯設計</a>
+    <a href="#section5" class="nav-link">成果展示</a>
+    <a href="#section6" class="nav-link">未來展望</a>
+  </div>
+
+<div class= "content">
+    <div class="title">
+      <h1>地震資料分析與資料庫系統</h1>
+    </div>
+    <div class="tag">
+      <li><i class="fa-solid fa-tag"></i> My SQL</li>
+      <li><i class="fa-solid fa-tag"></i> 資料庫設計</li>
+      <li><i class="fa-solid fa-tag"></i> 資料分析</li>
+    </div>
+    <div class="part" id="section1">
+      <h2>專案介紹</h2>
+    </div>
+    <div class="main-content">
+      <p>本專案建立一套地震資料分析與查詢系統，透過整理政府公開地震資料並建置資料庫，提供地震資訊的查詢與統計功能，提升資料使用效率與分析便利性。
+      </p>
+    </div>
+    <div class="part" id="section2">
+      <h2>背景與動機</h2>
+    </div>
+    <div class="main-content">
+      <p>台灣地震頻繁，相關資料雖為公開資訊，但多以分散或非結構化形式呈現，不利於快速查詢與統計分析。<br>因此，本專案希望透過建立結構化資料庫與網頁系統，將地震資料整合並提供直觀的查詢與分析功能，以提升資料應用價值。
+      </p>
+    </div>
+    <div class="part" id="section3">
+      <h2>技術重點與貢獻</h2>
+    </div>
+    <div class="main-content">
+      <p>本專案的技術重點包括：<br>1 資料庫設計與建置：使用MySQL建立地震資料庫，設計適合的資料表結構以支援高效查詢<br>2.管理者介面設計:提供管理者操作介面達到隨時新增資料及修改資料的功能<br>3 資料查詢與統計功能：開發SQL查詢語句與統計分析功能，提供使用者多樣化的資料查詢與分析選項。<br>透過這些技術實作，本專案成功建立了一套完整的地震資料分析與查詢系統，提升了地震資料的應用價值與使用便利性。
+      </p>
+    </div>
+    <div class="part" id="section4">
+      <h2>資料庫邏輯設計</h2>
+    </div>
+    <div class="picture-content">
+      <img src="/picture/earthquake_design.png" width="900">
+    </div>
+    <div class="part" id="section5">
+      <h2>成果展示</h2>
+    </div>
+    <div class="video-content">
+    <p>以下展示了使用者與管理者介面的操作影片，展示了系統的主要功能與使用流程。</p>
+    <p>使用者介面除了提供查詢全部資料及最新資料外，還提供查詢「震央位置統計次數」、「依時間查詢縣市震度」、「依條件塞選地震資料」三種功能</p>
+      <video src="/video/earthquake_user.mp4" width="960" controls></video>
+    <p>管理者頁面則是提供了資料新增、刪除2種操作功能，可以依照政府的公開資料自由編輯</p>
+      <video src="/video/earthquake_admin.mp4" width="960" controls></video>
+    </div>
+    <div class="part" id="section6">
+      <h2>未來展望</h2>
+    </div>
+    <div class="main-content">
+      <p>未來將持續優化系統功能，加入爬蟲功能，協助資料收集，並計畫開發更進階的資料分析功能，如地震趨勢分析與預測模型，以進一步提升地震資料的應用價值與使用者體驗。
+      </p>
+    </div>
+  </div>
+</body>
+</html>

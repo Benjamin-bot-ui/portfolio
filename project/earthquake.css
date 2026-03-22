@@ -1,0 +1,51 @@
+.content{
+    width:60%;
+    height: 100%;
+    margin: auto;
+}
+.title{
+    font-size: 24px;
+    text-align: center;
+}
+.tag{
+    font-size: 18px;
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-self: center;
+    font-size: 24px;
+    right: 5rem;
+}
+.part{
+    text-align: center;
+    font-size: 18px;
+}
+h2{
+    margin-bottom: 0;
+}
+.main-content{
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.picture-content{
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar{
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: #f1f5f9;
+}
+.sidebar a {
+  display: block;
+  margin-bottom: 10px; /* 可選：每個之間留點間距 */
+}
+html {
+  scroll-behavior: smooth;
+}

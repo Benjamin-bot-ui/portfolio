@@ -1,0 +1,89 @@
+body{
+    height: 100%;
+}
+.main-resume-area {
+    display: block;
+    max-width: 800px;   /* 或你希望的寬度 */
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee5ce;
+}
+.top-part{
+    display: flex;
+    align-items: center;
+    background-color: #ee915a;
+}
+.top-left-part{
+    margin-left: 3rem;
+}
+.top-left-part .header h1 {
+    color: #eee5ce;
+}
+.top-right-part {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-self: center;
+    
+    position: absolute;
+    right: 23rem;
+}
+.bottom-part-content{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.bottom-part .header{
+    display: flex;
+    width: 10rem;
+    height: 50px;
+    margin-bottom: 1rem;
+}
+.header i{
+    font-size: 2rem;
+    height: 33.6px;
+    margin-top: 19.92px;
+}
+.experience-time{
+    display: flex;
+    height: 10rem;
+}
+.line {
+    width: 1px;
+    /* 線的寬度 */
+    height: 150px;
+    /* 線的高度，可依需求調整 */
+    background-color: black;
+    /* 線的顏色 */
+    margin-right: 0;
+    margin-left: 1rem;
+}
+.experience-1{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.experience-2{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.experience-3{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.experience-content{
+    margin-left: 16px;
+}
+.skills-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 18px;
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+.skills-list li {
+  width: 25%; 
+}

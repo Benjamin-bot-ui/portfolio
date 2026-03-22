@@ -1,0 +1,51 @@
+body{
+    height: 1000px;
+}
+p{
+    text-align: center;
+}
+.content{
+    width:60%;
+    margin: auto;
+}
+.title{
+    font-size: 24px;
+    text-align: center;
+}
+.tag{
+    font-size: 18px;
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-self: center;
+    font-size: 24px;
+    right: 5rem;
+}
+.part{
+    text-align: center;
+    font-size: 18px;
+}
+h2{
+    margin-bottom: 0;
+}
+.main-content{
+    font-size: 20px;
+    max-width: 800px;   /* 或你希望的寬度 */
+    margin: 0 auto;     /* 左右自動留空 */
+    text-align: center; /* 文字置中 */
+}
+.sidebar{
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background-color: #f1f5f9;
+}
+.sidebar a {
+  display: block;
+  margin-bottom: 10px; /* 可選：每個之間留點間距 */
+}
+html {
+  scroll-behavior: smooth;
+}

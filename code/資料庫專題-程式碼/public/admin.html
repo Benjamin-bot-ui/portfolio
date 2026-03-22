@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>管理者介面</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+
+<body>
+  <div class="container">
+  <h1>地震資料管理</h1>
+
+  <!-- 🔹 新增資料表單 -->
+  <h2>新增地震資料</h2>
+
+<form id="add-earthquake-form">
+  <label>ID（自動產生）：</label>
+  <input type="number" id="id" name="id" readonly required><br><br>
+
+  <label>當年地震編號：</label>
+  <input type="number" name="event_number"><br><br>
+
+  <label>地震類型：</label>
+  <select name="type" required>
+    <option value="">請選擇</option>
+    <option value="小區域有感地震">小區域有感地震</option>
+    <option value="顯著有感地震">顯著有感地震</option>
+  </select><br><br>
+
+  <label>發生時間（YYYY:MM:DD HH:mm:ss）：</label>
+  <input type="text" name="datetime" pattern="\d{4}:\d{2}:\d{2} \d{2}:\d{2}:\d{2}" required><br><br>
+
+  <label>震央經度：</label>
+  <input type="number" step="0.01" name="longitude" required><br><br>
+
+  <label>震央緯度：</label>
+  <input type="number" step="0.01" name="latitude" required><br><br>
+
+  <label>芮氏規模：</label>
+  <input type="number" step="0.1" name="magnitude" required><br><br>
+
+  <label>深度（公里）：</label>
+  <input type="number" step="0.1" name="depth" required><br><br>
+
+  <label>最大震度：</label>
+  <input type="text" name="intensity" required><br><br>
+
+  <label>位置（三字）：</label>
+  <input type="text" name="location" pattern=".{3}" required><br><br>
+
+  <button type="submit">新增</button>
+</form>
+</div>
+
+<script>
+  // 自動設定 ID 為目前最大值 + 1
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch('/data')
+      .then(res => res.json())
+      .then(data => {
+        let maxId = 0;
+        data.forEach(item => {
+          if (item.id > maxId) maxId = item.id;
+        });
+        document.getElementById('id').value = maxId + 1;
+      });
+  });
+
+  // 處理表單送出
+ // 處理表單送出
+document.getElementById('add-earthquake-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // ✅ 如果當年地震編號為空字串，就設為 null
+  if (data.event_number === '') {
+    data.event_number = null;
+  } else {
+    data.event_number = Number(data.event_number); // 確保是數字型別
+  }
+
+  fetch('/add', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(result => {
+    if (result.success) {
+      alert('✅ 新增成功！');
+      form.reset(); // 清空表單
+      location.reload(); // 重新整理畫面
+    } else {
+      alert('❌ 新增失敗，請檢查資料');
+    }
+  })
+  .catch(err => {
+    console.error('錯誤：', err);
+    alert('❌ 發生錯誤');
+  });
+});
+ </script>
+
+
+  <hr>
+
+  <!-- 🔹 現有資料 -->
+  <div class="data-list">
+  <h2>目前地震資料</h2>
+  <h3>
+    <span style="display:inline-block; width:30px;"></span>
+    <span style="display:inline-block; width:60px;">id</span>
+    <span style="display:inline-block; width:120px;">當年地震編號</span>
+    <span style="display:inline-block; width:120px;">地震類型</span>
+    <span style="display:inline-block; width:200px;">發生時間</span>
+    <span style="display:inline-block; width:90px;">震央經度</span>
+    <span style="display:inline-block; width:90px;">震央緯度</span>
+    <span style="display:inline-block; width:90px;">芮氏規模</span>
+    <span style="display:inline-block; width:90px;">深度</span>
+    <span style="display:inline-block; width:90px;">最大震度</span>
+    <span style="display:inline-block; width:90px;">震央</span>
+</h3>
+  <ul id="data-list"></ul>
+  </div>
+
+  <script>
+    // 🔄 載入目前資料
+    async function loadData() {
+      const res = await fetch('/data');
+      const data = await res.json();
+      const list = document.getElementById('data-list');
+      list.innerHTML = '';
+
+      data.forEach(item => { // 建立每一筆資料的列表項目
+        const li = document.createElement('li');
+        li.dataset.id = item.id;// 儲存 ID 以便刪除
+        li.innerHTML = `
+        <span style="display:inline-block; width:60px;">${item.id}</span>
+        <span style="display:inline-block; width:120px;">${item.當年地震編號}</span>
+        <span style="display:inline-block; width:120px;">${item.地震類型}</span>
+        <span style="display:inline-block; width:200px;">${item.發生時間}</span>
+        <span style="display:inline-block; width:90px;">${item.震央經度}</span>
+        <span style="display:inline-block; width:90px;">${item.震央緯度}</span>
+        <span style="display:inline-block; width:90px;">${item.芮氏規模}</span>
+        <span style="display:inline-block; width:90px;">${item.深度}</span>
+        <span style="display:inline-block; width:90px;">${item.最大震度}</span>
+        <span style="display:inline-block; width:90px;">${item.位置}</span>
+        `;
+        const delBtn = document.createElement('button');
+        delBtn.textContent = '刪除';
+        delBtn.classList.add('delete-btn');
+
+        delBtn.addEventListener('click', async () => {
+        const confirmDelete = confirm(`確定要刪除 ID 為 ${item.id} 的資料嗎？`);
+        if (!confirmDelete) return;
+
+        const res = await fetch('/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: item.id })
+      });
+
+      const result = await res.json();
+      if (result.success) {
+        alert('✅ 刪除成功');
+        loadData(); // 重新載入
+      } else {
+        alert('❌ 刪除失敗');
+      }
+    });
+
+        li.appendChild(delBtn);
+        list.appendChild(li);
+      });
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
