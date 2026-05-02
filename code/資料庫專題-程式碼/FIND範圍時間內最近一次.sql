@@ -1,4 +1,0 @@
-SELECT * FROM earthquake.地震事件
-WHERE 發生時間 BETWEEN '2023-01-01' AND '2026-01-02'
-ORDER BY id DESC
-LIMIT 1;

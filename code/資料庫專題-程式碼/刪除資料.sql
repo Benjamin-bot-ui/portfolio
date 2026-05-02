@@ -1,1 +1,0 @@
-DELETE FROM `earthquake`.`地震事件` WHERE id = 3008;

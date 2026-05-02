@@ -1,5 +1,0 @@
-SELECT  位置 AS 震央位置,COUNT(*) AS 總次數
-FROM earthquake.地震事件
-WHERE 發生時間 BETWEEN '2023-01-01 00:00:00' AND '2026-01-02 23:59:59'
-GROUP BY 位置
-ORDER BY 總次數 DESC;
