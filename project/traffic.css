@@ -3,6 +3,7 @@ body{
 }
 p{
     text-align: center;
+    margin-bottom: 0;
 }
 .content{
     width:60%;

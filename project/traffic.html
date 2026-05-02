@@ -13,49 +13,76 @@
     <a href="#section1" class="nav-link">專案介紹</a>
     <a href="#section2" class="nav-link">背景與動機</a>
     <a href="#section3" class="nav-link">技術重點與貢獻</a>
-    <a href="#section4" class="nav-link">成果展示</a>
+    <a href="#section4" class="nav-link">實驗流程</a>
+    <a href="#section5" class="nav-link">程式架構</a>
+    <a href="#section6" class="nav-link">成果展示</a>
+    <a href="#section7" class="nav-link">結論與未來展望</a>
   </div>
 
   <div class= "content">
     <div class="title">
-      <h1>智慧交通異常偵測系統(開發中)</h1>
+      <h1>AI交通行為分析系統</h1>
     </div>
   <div class="tag">
-    <li><i class="fa-solid fa-tag"></i> Python</li>
-    <li><i class="fa-solid fa-tag"></i> Unity</li>
-    <li><i class="fa-solid fa-tag"></i> YOLO</li>
-    <li><i class="fa-solid fa-tag"></i> 交通安全</li>
     <li><i class="fa-solid fa-tag"></i> 異常偵測</li>
+    <li><i class="fa-solid fa-tag"></i> YOLO</li>
+    <li><i class="fa-solid fa-tag"></i> OpenCV</li>
+    <li><i class="fa-solid fa-tag"></i> 高速公路監控</li>
+    <li><i class="fa-solid fa-tag"></i> 智慧交通</li>
   </div>
   <div class="part" id="section1">
     <h2>專案介紹</h2>
   </div>
   <div class="main-content">
-    <p>本專案開發一套智慧交通異常偵測系統，利用Unity引擎模擬交通場景，並結合YOLO物件偵測技術，實現對交通異常事件的即時分析與預警。系統能夠偵測速度、車道線、車輛類型等多種交通參數，並透過這些參數來鑑別異常行為，如龜速車、違規變換車道。希望透過此系統提升交通安全，減少交通事故的發生，並為未來智慧城市的交通管理提供有力的技術支持。
+    <p>本專題在開發一套基於深度學習模型的高速公路車輛異常行為偵測系統。系統首先利用 YOLOv8 進行車輛即時偵測，並結合 ByteTrack 多目標追蹤技術，持續記錄每輛車的移動軌跡與身分識別。透過俯視轉換將影像轉為平面視角，提升車道判斷與位置分析的準確性，並進一步進行車道線偵測與車速估計，取得車輛之縱向與橫向運動資訊。
+    在功能上，系統可針對多種異常行為進行判斷，包括龜速行駛、蛇行、短時間連續變換車道及跨越車道線等情形，並於畫面中即時標示警示資訊。此外，系統亦可輸出車輛行為資料，作為後續交通分析與模型優化之依據。
     </p>
   </div>
   <div class= "part" id="section2">
     <h2>背景與動機</h2>
   </div>
   <div class="main-content">
-    <p>高速公路中龜速車與壓線行為會影響交通流與安全，而傳統人工監控效率有限。因此，本專案希望透過電腦視覺技術進行自動化偵測，並藉此提升實務應用能力。
+    <p>我們時常在高速公路內側車道遇到慢速車，導致車流嚴重回堵。內側車道正常是超車道不可長期占用。我們常常可以透過各種影片、社群媒體看到國外都是超完車之後切回中間或外側車道，把內側車道讓給要超車的車。有時我們會看到有些車為了搶快連續變換好幾個車道，這是不允許也非常危險的行為，這也是常常成為車禍的主因。
     </p>
   </div>
   <div class="part" id="section3">
     <h2>技術重點與貢獻</h2>
   </div>
   <div class="main-content">
-    <p>本專案的技術重點在於結合Unity模擬環境、YOLO物件偵測模型以及車道線偵測，實現對交通異常行為的即時分析。具體貢獻包括：Unity模擬交通場景、車速偵測，透過Unity模擬真實車流，並透過此種人為控制車輛行為的方式收集數據，讓整體系統的準確性可以提高。
+    <p>本專案的技術重點在於結合Unity模擬環境、YOLO物件偵測模型以及車道線偵測，實現對交通異常行為的即時分析。具體貢獻包括：Unity模擬交通場景、車道線偵測，透過Unity模擬真實車流，並透過此種人為控制車輛行為的方式收集數據，讓整體系統的準確性可以提高。
     </p>
   </div>
   <div class="part" id="section4">
+    <h2>實驗流程</h2>
+  </div>
+  <div class="picture-content">
+    <img src="/picture/design_traffic.png"width = "690" height= "160" alt="實驗流程圖" class="flow-image">
+  </div>
+  <div class="part" id="section5">
+    <h2>程式架構</h2>
+  </div>
+  <div class="picture-content">
+    <img src="/picture/process_traffic.png"alt="程式架構" class="flow-image">
+  </div>
+  <div class="part" id="section6">
     <h2>成果展示</h2>
   </div>
   <div class="main-content">
-    <p>以下影片為初步展示影片，展現出目前Unity模擬環境中車輛的行為模擬與速度偵測功能。未來將與其他組員進行進度整合，並持續優化系統的準確性與穩定性。
+    <p>以下影片為本專題的成果展示，展示了系統在Unity模擬環境中對車輛異常行為的即時偵測與分析能力(本次專題只偵測連續變換車道、蛇行和龜速車三項異常事件)。影片中可見系統成功識別出異常事件並標示，驗證了系統的有效性與實用性，為未來智慧交通系統的發展提供了有力的技術支持與參考依據。
     </p>
-    <video src="/video/traffic.mp4" width="960" height="540" controls></video>
+    <p>最左為ROI俯視畫面，藍線為車道線、綠線為車道中線；中間車道線偵測結果，由於採用背景累積的方式收集畫面中長時間不動的部分，因此前期結果會較不穩定；最右為最後影像輸出結果
+    </p>
+    <video src="/video/traffic_demo(1).mp4" width="690" height="389" controls></video>
+    <video src="/video/traffic_demo(2).mp4" width="690" height="389" controls></video>
+    <h3>真實畫面也可以正常偵測!!!(可直接跳至0:23)</h3>
+    <video src="/video/traffic_demo.mp4" width="690" height="389" controls></video>
   </div>
+  <div class="part" id="section7">
+    <h2>結論與未來展望</h2>
+  </div>
+  <div class="main-content">
+    <p>本專題成功利用現有深度學習模型(YOLO)及傳統影像處理與規則分析完成異常行為判斷，並在Unity模擬環境中驗證了系統的有效性。期望未來朝向雲端與邊緣運算整合發展，透過在邊緣設備端進行即時影像分析，並進一步導入預測分析機制，利用長期蒐集之交通資料進行模型訓練，進而預測事故高風險路段與時段，為智慧交通系統的發展提供更全面的技術支持與應用前景。
+    </p>
   </div>
 </body>
 </html>
